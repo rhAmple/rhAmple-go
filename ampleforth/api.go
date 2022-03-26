@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"path/filepath"
 )
 
 // Ampleforth API constants.
@@ -55,7 +54,7 @@ type TokenInfo struct {
 // FetchTokenInfo returns a TokenInfo struct fetched from the Ampleforth
 // WebApi.
 func FetchTokenInfo() (*TokenInfo, error) {
-	url := filepath.Join(host, chain, "token-info")
+	url := host + "/" + chain + "/token-info"
 
 	c := http.Client{}
 

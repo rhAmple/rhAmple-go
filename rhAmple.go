@@ -2,14 +2,18 @@ package rhAmple
 
 import "github.com/rhAmple/rhAmple-go/strategies"
 
-type RhAmple struct {
+type rhAmple struct {
 	strategy strategies.Strategy
 }
 
-func GetRhAmple() *RhAmple {
+func GetRhAmple() *rhAmple {
 	strategy := strategies.GetMainnetStrategyV1()
 
-	return &RhAmple{
+	return &rhAmple{
 		strategy: strategy,
 	}
+}
+
+func (rh *rhAmple) StrategySignal() (strategies.Signal, error) {
+	return rh.strategy.Signal()
 }

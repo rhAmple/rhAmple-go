@@ -13,3 +13,13 @@ type Strategy interface {
 	// on-chain.
 	Signal() (Signal, error)
 }
+
+func (s Signal) String() string {
+	if s == Hedge {
+		return "hedge"
+	}
+	if s == Dehedge {
+		return "dehedge"
+	}
+	return "invalid"
+}

@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"path/filepath"
 )
 
 // Coingecko API constants.
@@ -23,7 +22,7 @@ type priceInfo struct {
 }
 
 func FetchPrice() (float64, error) {
-	endpoint := filepath.Join(api, "simple", "price")
+	endpoint := api + "/simple/price"
 	v := url.Values{}
 	v.Set("ids", tokenId)
 	v.Set("vs_currencies", priceDenomination)
