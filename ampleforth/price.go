@@ -34,8 +34,6 @@ func price() (float64, error) {
 		return 0, err
 	}
 
-	req.Header.Set("User-Agent", userAgent)
-
 	res, err := c.Do(req)
 	if err != nil {
 		return 0, err

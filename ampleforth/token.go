@@ -56,8 +56,6 @@ func tokenInfo() (*tokenInfoResponse, error) {
 		return nil, err
 	}
 
-	req.Header.Set("User-Agent", userAgent)
-
 	res, err := c.Do(req)
 	if err != nil {
 		return nil, err

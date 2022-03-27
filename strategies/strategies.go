@@ -1,5 +1,8 @@
+// Package strategies provides simulations of strategy implementations used
+// on-chain.
 package strategies
 
+// Signal represents the possible signals a rebase strategy can return.
 type Signal int
 
 const (
@@ -8,6 +11,8 @@ const (
 	Invalid
 )
 
+// A strategy returns a signal whether an upcoming rebase should be hedged or
+// not.
 type Strategy interface {
 	// Signal returns the hedging signal the strategy implementation returns
 	// on-chain.

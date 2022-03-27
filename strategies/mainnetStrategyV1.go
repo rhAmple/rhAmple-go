@@ -5,6 +5,7 @@ import "github.com/rhAmple/rhAmple-go/ampleforth"
 type mainnetStrategyV1 struct {
 }
 
+// GetMainnetStrategyV1 returns the MainnetStrategyV1 Strategy implmementation.
 func GetMainnetStrategyV1() *mainnetStrategyV1 {
 	return &mainnetStrategyV1{}
 }
