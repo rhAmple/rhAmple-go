@@ -15,11 +15,14 @@ type Strategy interface {
 }
 
 func (s Signal) String() string {
-	if s == Hedge {
+	switch s {
+	case Hedge:
 		return "hedge"
-	}
-	if s == Dehedge {
+	case Dehedge:
 		return "dehedge"
+	case Invalid:
+		return "invalid"
+	default:
+		return "unknown signal type"
 	}
-	return "invalid"
 }

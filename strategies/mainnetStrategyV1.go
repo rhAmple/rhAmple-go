@@ -10,20 +10,13 @@ func GetMainnetStrategyV1() *mainnetStrategyV1 {
 }
 
 func (s *mainnetStrategyV1) Signal() (Signal, error) {
-	tokenInfo, err := ampleforth.FetchTokenInfo()
-	if err != nil {
-		return Invalid, err
-	}
-
-	targetRate := tokenInfo.LastRebaseInfo.TargetRateAtRebase
-
-	price, err := ampleforth.FetchPrice()
+	ampleInfo, err := ampleforth.Info()
 	if err != nil {
 		return Invalid, err
 	}
 
 	// Signal is hedge if price is lower than target rate.
-	if price < targetRate {
+	if ampleInfo.Price < ampleInfo.TargetRate {
 		return Hedge, nil
 	} else {
 		return Dehedge, nil

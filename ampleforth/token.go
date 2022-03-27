@@ -6,14 +6,9 @@ import (
 	"net/http"
 )
 
-// Ampleforth API constants.
-const (
-	host  = "https://web-api.ampleforth.org/"
-	chain = "eth"
-)
+const tokenAPI = "https://web-api.ampleforth.org/eth"
 
-// TokenInfo encapsulates Ampleforth's WebApi response for /token-info.
-type TokenInfo struct {
+type tokenInfoResponse struct {
 	Addresses struct {
 		NonCirculatingWallets []string `json:"nonCirculatingWallets"`
 		Orchestrator          string   `json:"orchestrator"`
@@ -51,10 +46,8 @@ type TokenInfo struct {
 	} `json:"supplyInfo"`
 }
 
-// FetchTokenInfo returns a TokenInfo struct fetched from the Ampleforth
-// WebApi.
-func FetchTokenInfo() (*TokenInfo, error) {
-	url := host + "/" + chain + "/token-info"
+func tokenInfo() (*tokenInfoResponse, error) {
+	url := tokenAPI + "/token-info"
 
 	c := http.Client{}
 
@@ -79,7 +72,7 @@ func FetchTokenInfo() (*TokenInfo, error) {
 		return nil, err
 	}
 
-	tokenInfo := TokenInfo{}
+	tokenInfo := tokenInfoResponse{}
 	err = json.Unmarshal(body, &tokenInfo)
 	if err != nil {
 		return nil, err

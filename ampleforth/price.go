@@ -21,7 +21,7 @@ type priceInfo struct {
 	} `json:"ampleforth"`
 }
 
-func FetchPrice() (float64, error) {
+func price() (float64, error) {
 	endpoint := api + "/simple/price"
 	v := url.Values{}
 	v.Set("ids", tokenId)
