@@ -1,4 +1,4 @@
-// Package strategies provides simulations of strategy implementations used
+// Package strategies provides simulation of strategy implementations used
 // on-chain.
 package strategies
 
@@ -11,11 +11,11 @@ const (
 	Invalid
 )
 
-// A strategy returns a signal whether an upcoming rebase should be hedged or
-// not.
+// A strategy returns a signal deciding whether an upcoming rebase should be
+// hedged or not.
 type Strategy interface {
-	// Signal returns the hedging signal the strategy implementation returns
-	// on-chain.
+	// Signal returns the hedging signal the strategy implementation would
+	// return on-chain.
 	Signal() (Signal, error)
 }
 

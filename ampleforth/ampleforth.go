@@ -1,4 +1,4 @@
-// Package ampleforth is a stateless library for fetching data about
+// Package ampleforth provides a stateless library for fetching data about
 // Ampleforth.
 package ampleforth
 
@@ -22,7 +22,7 @@ func Info() (AmpleInfo, error) {
 	}, nil
 }
 
-// AmpleInfo struct encapsulates Ampleforth data.
+// AmpleInfo struct encapsulating Ampleforth data.
 type AmpleInfo struct {
 	TargetRate    float64
 	Price         float64
