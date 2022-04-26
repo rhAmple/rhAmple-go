@@ -6,22 +6,22 @@ import (
 	"github.com/rhAmple/rhAmple-go/strategies"
 )
 
-type rhAmple struct {
+type RhAmple struct {
 	strategy strategies.Strategy
 }
 
 // GetRhAmple returns an rhAmple instance simulating the current rhAmple
 // version on-chain.
-func GetRhAmple() rhAmple {
+func GetRhAmple() RhAmple {
 	strategy := strategies.GetMainnetStrategyV1()
 
-	return rhAmple{
+	return RhAmple{
 		strategy: strategy,
 	}
 }
 
 // StrategySignal returns the rhAmple's current hedging signal deciding whether
 // an upcoming rebase should be hedged or not.
-func (rh *rhAmple) StrategySignal() (strategies.Signal, error) {
+func (rh *RhAmple) StrategySignal() (strategies.Signal, error) {
 	return rh.strategy.Signal()
 }

@@ -23,10 +23,10 @@ type tokenInfoResponse struct {
 	} `json:"constants"`
 	Epoch          int64 `json:"epoch"`
 	LastRebaseInfo struct {
-		AppliedSupplyAdjustment int64   `json:"appliedSupplyAdjustment"`
+		AppliedSupplyAdjustment float64 `json:"appliedSupplyAdjustment"`
 		Epoch                   int64   `json:"epoch"`
 		MarketRateAtRebase      float64 `json:"marketRateAtRebase"`
-		PrecentageChange        int64   `json:"precentageChange"`
+		PrecentageChange        float64 `json:"precentageChange"`
 		PreviousSupply          float64 `json:"previousSupply"`
 		TargetRateAtRebase      float64 `json:"targetRateAtRebase"`
 		TimestampSec            int64   `json:"timestampSec"`
